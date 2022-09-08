@@ -1,10 +1,8 @@
-import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div >
-     
-      Finaly Runs on browser
-    </div>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
   )
 }
