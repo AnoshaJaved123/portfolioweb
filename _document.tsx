@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/public/vercel.svg" />
         </Head>
         <body>
+          
           <Main />
           <NextScript />
         </body>
