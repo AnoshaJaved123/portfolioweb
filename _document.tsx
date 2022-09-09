@@ -1,12 +1,12 @@
-import { extractCritical } from "@emotion/server"
-import Document, { Head, Html, Main, NextScript } from "next/document"
-import React from "react"
+import { extractCritical } from "@emotion/server";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
-    const initialProps = await Document.getInitialProps(ctx)
-    const critical = extractCritical(initialProps.html)
-    initialProps.html = critical.html
+    const initialProps = await Document.getInitialProps(ctx);
+    const critical = extractCritical(initialProps.html);
+    initialProps.html = critical.html;
     initialProps.styles = (
       <React.Fragment>
         {initialProps.styles}
@@ -15,9 +15,9 @@ export default class MyDocument extends Document {
           dangerouslySetInnerHTML={{ __html: critical.css }}
         />
       </React.Fragment>
-    )
+    );
 
-    return initialProps
+    return initialProps;
   }
 
   render() {
@@ -25,6 +25,19 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/flowbite@1.4.5/dist/flowbite.min.css"
+          />
+          <link
+            href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+            rel="stylesheet"
+          />
+          <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -38,11 +51,10 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/public/vercel.svg" />
         </Head>
         <body>
-          
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
