@@ -68,7 +68,7 @@ handler.post(async (req, res) => {
         // const url = await getSignedUrl(s3, cmd);
 
 
-        url = `https://${bucketName}.s3.${region}.amazonaws.com/${filesname}`
+        url = `https://${bucketName}.s3.${region}.amazonaws.com/${filename}`
     }
 
 
