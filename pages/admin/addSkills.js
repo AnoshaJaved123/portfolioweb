@@ -21,8 +21,9 @@ const AddSkills = () => {
   
   
       let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/skill`, {
+        method: "POST",
         headers: {
-          // Accept: "application/json",
+          Accept: "application/json",
         },
         body: formData,
       })
