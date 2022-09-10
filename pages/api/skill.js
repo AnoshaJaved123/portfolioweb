@@ -15,7 +15,6 @@ const bucketName = process.env.NEXT_PUBLIC_AWS_BUCKET
 const region = process.env.NEXT_PUBLIC_AWS_Region
 const accessKeyId = process.env.NEXT_PUBLIC_AWS_Access_key_ID
 const secretAccessKey = process.env.NEXT_PUBLIC_AWS_Secret_access_key
-let url = "https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-11.jpg"
  
 
 
@@ -42,20 +41,36 @@ handler.use(cors({ origin: true })); // enable origin cors
 
 
 handler.post(async (req, res) => {
+    let url = "https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-11.jpg"
+
     let filename = uuidv4() + "-" + new Date().getTime();
 
-    console.log('req.body',req.body)
-    console.log('req.file',req.file)
-    const params = {
-        Bucket: bucketName,
-        Body:req.file.buffer,
-        Key:filename,
-        ContentType:req.file.mimetype
-    }
-    const command = new PutObjectCommand(params)
-     await s3.send(command)
+    // console.log('req.body',req.body)
+    // console.log('req.file',req.file)
+    if (req.file) {
 
- url = `https://${bucketName}.s3.${region}.amazonaws.com/${filename}`
+        const params = {
+            Bucket: bucketName,
+            // Body: req.files.image.buffer,
+            Body:req.file.image.buffer,
+            Key: filename,
+            ContentType: req.file.image.mimetype
+        }
+
+        const command = new PutObjectCommand(params)
+        await s3.send(command)
+        //GET OBJECT FROM AWS   
+        const getObjectParams = {
+            Bucket: bucketName,
+            Key: filename,
+        }
+        const cmd = new GetObjectCommand(getObjectParams);
+        // const url = await getSignedUrl(s3, cmd);
+
+
+        url = `https://${bucketName}.s3.${region}.amazonaws.com/${filesname}`
+    }
+
 
 
 
