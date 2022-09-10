@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section className="text-gray-600 body-font">
         <div className=" bg-cover bg-center bg-no-repeat py-8" style={{ backgroundImage: "url(/s2.jpg)" }}>
-          <div className="backdrop-opacity-10 backdrop-invert bg-zinc-500/50   container mx-auto flex flex-col px-5 py-24 justify-center items-center">
+          <div className="backdrop-opacity-10 backdrop-invert bg-zinc-300/5   container mx-auto flex flex-col px-5 py-24 justify-center items-center">
 
             {/* <Image className="border border-solid border-white border-spacing-7  h-52 rounded-full  sm:h-56" alt="hero" width={250} height={280} src={'/newpicanosha.jpeg'} /> */}
 
@@ -27,8 +27,9 @@ export default function Home() {
               </p>
               <div className="flex justify-center">
                 <div className=''>
-                  <button className='w-32 bg-zinc-900 text-center items-center my-1 mx-1 hover:bg-stone-700 text-white font-semibold hover:text-white py-1 px-1 border border-stone-700 hover:border-white'>Blogs</button>
-                  <button className='w-32 bg-zinc-900 text-center items-center my-1 mx-1 hover:bg-stone-700 text-white font-semibold hover:text-white py-1 px-1 border border-stone-700 hover:border-white'>Projects</button>
+                <Link href={'/blogs'}><a><button className='w-32 bg-zinc-900 text-center items-center my-1 mx-1 hover:bg-stone-700 text-white font-semibold hover:text-white py-1 px-1 border border-stone-700 hover:border-white'>Blogs</button></a></Link>
+
+                 <Link href={'/projects'}><a>  <button className='w-32 bg-zinc-900 text-center items-center my-1 mx-1 hover:bg-stone-700 text-white font-semibold hover:text-white py-1 px-1 border border-stone-700 hover:border-white'>Projects</button></a></Link>
                 </div>
               </div>
 
@@ -311,7 +312,7 @@ export default function Home() {
           </div>
         </div>
         <div className="p-2 w-full">
-          <button className="flex mx-auto text-white bg-stone-500 border-0 py-2 px-8 focus:outline-none hover:bg-stone-600 rounded text-lg">Send</button>
+          <button className="flex mx-auto text-white bg-stone-900 border-0 py-2 px-8 focus:outline-none hover:bg-stone-700  text-lg">Send</button>
         </div>
 
       </div>
@@ -333,7 +334,7 @@ export default function Home() {
     />
         </div>
         <p className="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg">
-          My Phone
+          Phone
         </p>
       </div>
   
@@ -354,7 +355,7 @@ export default function Home() {
     />
         </div>
         <p className="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg">
-          My Email
+          Email
         </p>
       </div>
       <p className="pt-2 text-left font-body font-bold text-primary lg:text-lg">
@@ -374,7 +375,7 @@ export default function Home() {
     />
         </div>
         <p className="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg">
-          My Address
+          Location
         </p>
       </div>
       <p className="pt-2 text-left font-body font-bold text-primary lg:text-lg">

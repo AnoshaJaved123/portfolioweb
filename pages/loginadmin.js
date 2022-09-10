@@ -28,7 +28,7 @@ const Loginadmin = () => {
   return (
     <div className='h-screen'>
   <section className="text-gray-600 body-font h-[90vh] w-full object-fill " style={{
-    backgroundSize: "100% 100%", backgroundImage: `url(${'/new.jpg'})`,
+    backgroundSize: "100% 100%", backgroundImage: `url(${'/s1.jpg'})`,
   }}>
   <ToastContainer
         position="bottom-right"
@@ -57,7 +57,7 @@ const Loginadmin = () => {
      
     </div>
     <div className="text-center mt-6">
-      <button onClick={handleadmin} className="text-black bg-stone-500 border-0 py-2 px-8 focus:outline-none hover:bg-stone-600  text-lg">LOGIN</button>
+      <button onClick={handleadmin} className="text-white bg-stone-700 border-0 py-2 px-8 focus:outline-none hover:bg-stone-600  text-lg">LOGIN</button>
     </div>
   </div>
 </section>
