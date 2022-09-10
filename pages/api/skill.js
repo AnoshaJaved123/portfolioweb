@@ -8,6 +8,7 @@ dotenv.config()
 import Skill from "../../modules/Skill"
 import connectDb from "../../middleware/mongoose"
 // import AWS from 'aws-sdk'
+const cors = require("cors"); //this is a library to config easily cors
 
 
 const bucketName = process.env.NEXT_PUBLIC_AWS_BUCKET
@@ -36,6 +37,7 @@ const handler = nextConnect();
 
 handler.use(upload.single('image')); // attribute name you are sending the file by 
 
+app.use(cors({ origin: true })); // enable origin cors
 
 
 handler.post(async (req, res) => {
