@@ -28,6 +28,8 @@ const AddSkills = () => {
         body: formData,
       })
       const response2 = await res.json()
+      console.log(response2)
+
       if (response2.success) {
         
          toast.success('New Skill added', {

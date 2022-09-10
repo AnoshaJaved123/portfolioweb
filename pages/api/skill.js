@@ -1,13 +1,11 @@
 import nextConnect from "next-connect";
 import multer from "multer";
 import { v4 as uuidv4 } from "uuid";
-import { S3Client, PutObjectCommand,GetObjectCommand } from "@aws-sdk/client-s3";
-// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import dotenv from 'dotenv'
 dotenv.config()
 import Skill from "../../modules/Skill"
 import connectDb from "../../middleware/mongoose"
-// import AWS from 'aws-sdk'
 const cors = require("cors"); //this is a library to config easily cors
 
 
@@ -43,32 +41,26 @@ handler.use(cors({ origin: true })); // enable origin cors
 handler.post(async (req, res) => {
     let url = "https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-11.jpg"
 
-    let filename = uuidv4() + "-" + new Date().getTime();
+    let filename = uuidv4() + "anoshaskills";
 
-    // console.log('req.body',req.body)
-    // console.log('req.file',req.file)
+    console.log('req.body', JSON.parse(JSON.stringify(req.body)))
+    console.log('req.file',req.file)
     if (req.file) {
-
         const params = {
             Bucket: bucketName,
-            // Body: req.files.image.buffer,
-            Body:req.file.image.buffer,
+            Body:req.file.buffer,
             Key: filename,
-            ContentType: req.file.image.mimetype
+            ContentType: req.file.mimetype
         }
-
+        
         const command = new PutObjectCommand(params)
         await s3.send(command)
-        //GET OBJECT FROM AWS   
-        const getObjectParams = {
-            Bucket: bucketName,
-            Key: filename,
-        }
-        const cmd = new GetObjectCommand(getObjectParams);
-        // const url = await getSignedUrl(s3, cmd);
-
+        console.log(req.file.buffer)
+  
 
         url = `https://${bucketName}.s3.${region}.amazonaws.com/${filename}`
+        console.log("url generated",url)
+
     }
 
 
