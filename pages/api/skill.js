@@ -37,7 +37,7 @@ const handler = nextConnect();
 
 handler.use(upload.single('image')); // attribute name you are sending the file by 
 
-app.use(cors({ origin: true })); // enable origin cors
+handler.use(cors({ origin: true })); // enable origin cors
 
 
 handler.post(async (req, res) => {
