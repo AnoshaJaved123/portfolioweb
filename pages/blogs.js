@@ -36,7 +36,7 @@ const Blogs = ({blogs}) => {
               </div>
               <div className="bg-white py-6 px-5 xl:py-8 cursor-pointer">
                 <span className="block font-body text-lg font-semibold text-black"> {item.name}</span>
-                <span className="block pt-2 font-body text-grey-20">{item.desc}</span>
+                {/* <span className="block pt-2 font-body text-grey-20">{item.desc}</span> */}
               </div></div>
             </Link>
              })}
